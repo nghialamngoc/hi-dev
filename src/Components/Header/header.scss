@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  .header-left {
+    padding-left: 100px;
+    .header-left__logo {
+      img {
+        width: 45px;
+      }
+    }
+    .header-app-name {
+      font-size: 20px;
+      font-weight: 500;
+      padding-left: 10px;
+    }
+  }
+  .header-right {
+    padding-right: 100px;
+    .header-right__user {
+      border-top: 2px solid #609A8E;
+      border-bottom: 2px solid #609A8E;
+      border-radius: 50%;
+      padding: 2px;
+    }
+  }
+}
