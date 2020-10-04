@@ -1,10 +1,11 @@
+@import '../../Assets/Scss/variable.scss';
+
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 10px;
+  padding: 20px 150px 0 150px;
   .header-left {
-    padding-left: 100px;
     .header-left__logo {
       img {
         width: 45px;
@@ -17,12 +18,29 @@
     }
   }
   .header-right {
-    padding-right: 100px;
     .header-right__user {
       border-top: 2px solid #609A8E;
       border-bottom: 2px solid #609A8E;
       border-radius: 50%;
       padding: 2px;
     }
+  }
+}
+.app-menu {
+  .ant-drawer-title {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .menu-link {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    color: black;
+    &:hover {
+      color: #fa8914;
+    }
+  }
+  .menu-link-active {
+    color: $button-color-1;
   }
 }
