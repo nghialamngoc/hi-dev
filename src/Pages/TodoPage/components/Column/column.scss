@@ -1,0 +1,25 @@
+.column-container {
+  margin: 8px;
+  border: 1px solid lightgrey;
+  border-radius: 2px;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  .column-title {
+    padding: 8px;
+  }
+  .column-tasks {
+    padding: 8px;
+    transition: background-color 0.3s ease;
+    flex-grow: 1;
+    min-height: 100px;
+  }
+}
+
+.draggingOver {
+  background-color: #ffebe6;
+}
+
+.draggingOverColumn {
+  background-color: rgb(230, 252, 255);
+}
