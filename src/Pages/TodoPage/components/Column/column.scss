@@ -5,8 +5,10 @@
   min-width: 300px;
   display: flex;
   flex-direction: column;
+  background-color: #EBECF0;
   .column-title {
     padding: 8px;
+    margin: 0;
   }
   .column-tasks {
     padding: 8px;
