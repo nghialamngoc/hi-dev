@@ -19,9 +19,14 @@ const initialData = {
       id: 'column-3',
       title: 'Done',
       taskIds: []
+    },
+    'column-4': {
+      id: 'column-4',
+      title: 'Trash',
+      taskIds: []
     }
   },
-  columnOrder: ['column-1', 'column-2', 'column-3']
+  columnOrder: ['column-1', 'column-2', 'column-3', 'column-4']
 }
 
 export default initialData;

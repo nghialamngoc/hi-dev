@@ -4,8 +4,9 @@ import InnerTask from '../InnerTask'
 import './column.scss'
 
 const Column = function (props) {
+  const columnId = props.column.id;
   return (
-    <Draggable draggableId={props.column.id} index={props.index}>
+    <Draggable draggableId={columnId} index={props.index}>
       {
         (provided) => (
           <div
@@ -16,10 +17,11 @@ const Column = function (props) {
             <h3
               className="column-title"
               {...provided.dragHandleProps}
+              style={{ color: columnId === 'column-1' ? '#01ad01' : columnId === 'column-2' ? '#00bbf3' : columnId === 'column-3' ? '#e88b00' : 'red' }}
             >
               {props.column.title}
             </h3>
-            <Droppable droppableId={props.column.id} type="task">
+            <Droppable droppableId={columnId} type="task">
               {
                 (provided, snapshot) => (
                   <div
@@ -28,7 +30,7 @@ const Column = function (props) {
                     ref={provided.innerRef}
                     {...provided.droppableProps}
                   >
-                    <InnerTask tasks={props.tasks}></InnerTask>
+                    <InnerTask tasks={props.tasks} column={props.column}></InnerTask>
                     {provided.placeholder}
                   </div>
                 )

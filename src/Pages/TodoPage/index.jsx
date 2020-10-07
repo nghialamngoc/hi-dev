@@ -59,7 +59,9 @@ export default function TodoPage() {
         const newFromTaskIds = Array.from(fromColumn.taskIds);
         const newToTaskIds = Array.from(toColumn.taskIds)
         newFromTaskIds.splice(source.index, 1);
-        newToTaskIds.splice(destination.index, 0, draggableId);
+        if ( destination.droppableId !== 'column-4') {
+          newToTaskIds.splice(destination.index, 0, draggableId);
+        }
 
         const newFromColumn = {
           ...fromColumn,

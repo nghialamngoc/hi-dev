@@ -4,6 +4,10 @@
   padding: 8px;
   margin-bottom: 8px;
   background-color: white;
+  display: flex;
+  .task-content {
+    padding: 5px 10px;
+  }
 }
 
 .dragging {
