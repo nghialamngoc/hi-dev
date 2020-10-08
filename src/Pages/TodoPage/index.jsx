@@ -1,12 +1,16 @@
-import React from 'react'
-import { useState } from 'react';
-import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-import Column from './components/Column';
+import React, { useState } from 'react'
+import { DragDropContext, Droppable } from 'react-beautiful-dnd'
+import Column from './components/Column'
 import initialData from './initial-data'
+import FormAdd from './components/FormAdd'
+import { Modal } from 'antd'
 import './todoPage.scss'
 
 export default function TodoPage() {
-  const [todoData, setTodoData] = useState(initialData)
+  const [todoData, setTodoData] = useState(initialData);
+  const [modalTitle, setModalTitle] = useState('')
+  const [modalState, setModalState] = useState(false);
+
   const onDragEnd = result => {
     const { destination, source, draggableId, type } = result;
     if (!destination) {
@@ -59,7 +63,7 @@ export default function TodoPage() {
         const newFromTaskIds = Array.from(fromColumn.taskIds);
         const newToTaskIds = Array.from(toColumn.taskIds)
         newFromTaskIds.splice(source.index, 1);
-        if ( destination.droppableId !== 'column-4') {
+        if (destination.droppableId !== 'column-4') {
           newToTaskIds.splice(destination.index, 0, draggableId);
         }
 
@@ -86,28 +90,52 @@ export default function TodoPage() {
     }
   }
 
+  const onAdd = (data) => {
+    setModalState(false);
+  }
+
+  const showModal = (title) => {
+    setModalTitle(title)
+    setModalState(true);
+  };
+
+  const handleCancel = e => {
+    setModalState(false);
+  };
+
   return (
-    <DragDropContext onDragEnd={onDragEnd}>
-      <Droppable droppableId="all-columns" direction="horizontal" type="column">
-        {(provided) => (
-          <div
-            className="todo-container"
-            ref={provided.innerRef}
-            {...provided.droppableProps}
-          >
-            {
-              todoData.columnOrder.map((columnId, index) => {
-                // get column data
-                const column = todoData.columns[columnId];
-                // get task of column
-                const tasks = column.taskIds.map(taskId => todoData.tasks[taskId]);
-                return <Column key={column.id} column={column} tasks={tasks} index={index}></Column>
-              }
-              )}
-            { provided.placeholder}
-          </div>
-        )}
-      </Droppable>
-    </DragDropContext>
+    <div>
+
+      <DragDropContext onDragEnd={onDragEnd}>
+        <Droppable droppableId="all-columns" direction="horizontal" type="column">
+          {(provided) => (
+            <div
+              className="todo-container"
+              ref={provided.innerRef}
+              {...provided.droppableProps}
+            >
+              {
+                todoData.columnOrder.map((columnId, index) => {
+                  // get column data
+                  const column = todoData.columns[columnId];
+                  // get task of column
+                  const tasks = column.taskIds.map(taskId => todoData.tasks[taskId]);
+                  return <Column key={column.id} column={column} tasks={tasks} index={index} showModal={showModal}></Column>
+                }
+                )}
+              { provided.placeholder}
+            </div>
+          )}
+        </Droppable>
+      </DragDropContext>
+      <Modal
+        title={`Add ${modalTitle} Task`}
+        visible={modalState}
+        onCancel={handleCancel}
+        footer={null}
+      >
+        <FormAdd onAdd={onAdd}></FormAdd>
+      </Modal>
+    </div>
   )
 }

@@ -1,10 +1,14 @@
 import React from 'react'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
 import InnerTask from '../InnerTask'
+import {
+  PlusCircleOutlined
+} from '@ant-design/icons';
 import './column.scss'
 
 const Column = function (props) {
   const columnId = props.column.id;
+
   return (
     <Draggable draggableId={columnId} index={props.index}>
       {
@@ -31,7 +35,12 @@ const Column = function (props) {
                     {...provided.droppableProps}
                   >
                     <InnerTask tasks={props.tasks} column={props.column}></InnerTask>
-                    {provided.placeholder}
+                    { provided.placeholder}
+                    { columnId !== 'column-4' &&
+                      <div className="column-add">
+                        <PlusCircleOutlined onClick={() => props.showModal(props.column.title)}></PlusCircleOutlined>
+                      </div>
+                    }
                   </div>
                 )
               }

@@ -3,7 +3,7 @@ import Task from '../Task'
 
 const InnerTask = function (props) {
   return (
-    <div>
+    <div style={{flexGrow: 1}}>
       {
         props.tasks.map((task, index) => <Task key={task.id} task={task} index={index} column={props.column}></Task>)
       }
