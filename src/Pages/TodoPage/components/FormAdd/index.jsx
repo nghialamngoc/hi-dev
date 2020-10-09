@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Form, Button } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
 
 export default function FormAdd(props) {
-
+  const form = useRef(null)
   const onFinish = (values) => {
-    props.onAdd(values);
+    props.onAdd({
+      ...values,
+      createdDate: Date.now()
+    });
+    form.current.resetFields();
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -17,6 +21,7 @@ export default function FormAdd(props) {
       name="basic"
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
+      ref={form}
     >
       <Form.Item
         label="Content"

@@ -91,6 +91,33 @@ export default function TodoPage() {
   }
 
   const onAdd = (data) => {
+    const newTask = {
+      id: data.createdDate.toString(),
+      content: data.content
+    };
+
+    const newToDoData = JSON.parse(JSON.stringify(todoData));
+    let columnId = '';
+    switch (modalTitle) {
+      case 'To Do':
+        columnId = 'column-1'
+        break;
+      case 'In Progress':
+        columnId = 'column-2'
+        break;
+      case 'Done':
+        columnId = 'column-3'
+        break;
+      default:
+        break;
+    }
+    if ( columnId === '' || newToDoData.columns == null || newToDoData.columns[columnId] == null || newToDoData.columns[columnId].taskIds == null ) {
+      setModalState(false);
+      return;
+    }
+    newToDoData.tasks[`task-${data.createdDate}`] = newTask;
+    newToDoData.columns[columnId].taskIds = [ ...newToDoData.columns[columnId].taskIds, `task-${data.createdDate}`];
+    setTodoData(newToDoData);
     setModalState(false);
   }
 
