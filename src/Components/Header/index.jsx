@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react'
 import { Avatar, Drawer } from 'antd';
 import logo from '../../Assets/Images/logo.jpg';
 import { NavLink, withRouter  } from 'react-router-dom';
+import FireBase from '../../firebase';
 import './header.scss';
 
 const Header = function ({ history }) {
@@ -18,6 +19,11 @@ const Header = function ({ history }) {
   history.listen((location, action) => {
     setVisible(false);
   })
+
+  const signIn = () => {
+    FireBase.loginWithGoogle();
+  }
+
   return (
     <div className="header">
       <div className="header-left flex-center">
@@ -28,6 +34,7 @@ const Header = function ({ history }) {
       </div>
       <div className="header-right">
         <div className="header-right__user">
+          <button onClick={signIn}>Sign In</button>
           <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" size={35} />
         </div>
       </div>
