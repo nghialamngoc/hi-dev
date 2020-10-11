@@ -11,4 +11,5 @@
 
 .app-content {
   flex-grow: 1;
+  margin-top: 30px;
 }

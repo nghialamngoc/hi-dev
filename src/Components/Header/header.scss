@@ -4,8 +4,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 150px 0 150px;
-  height: 65px;
+  padding: 20px 150px 20px 150px;
+  height: 70px;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
   .header-left {
     .header-left__logo {
       img {
@@ -19,6 +20,16 @@
     }
   }
   .header-right {
+    .header-signin {
+      color: #018F69;
+      font-size: 15px;
+      margin-right: 10px;
+      border: 1px solid #018F69;
+      padding: 5px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 500;
+    }
     .header-right__user {
       border-top: 2px solid #609A8E;
       border-bottom: 2px solid #609A8E;
