@@ -1,4 +1,4 @@
-@import '../../Assets/Scss/variable.scss';
+@import "../../Assets/Scss/variable.scss";
 
 .header {
   display: flex;
@@ -21,18 +21,18 @@
   }
   .header-right {
     .header-signin {
-      color: #018F69;
+      color: #018f69;
       font-size: 15px;
       margin-right: 10px;
-      border: 1px solid #018F69;
+      border: 1px solid #018f69;
       padding: 5px 15px;
       border-radius: 5px;
       cursor: pointer;
       font-weight: 500;
     }
     .header-right__user {
-      border-top: 2px solid #609A8E;
-      border-bottom: 2px solid #609A8E;
+      border-top: 2px solid #609a8e;
+      border-bottom: 2px solid #609a8e;
       border-radius: 50%;
       padding: 2px;
     }
@@ -54,5 +54,44 @@
   }
   .menu-link-active {
     color: $button-color-1;
+  }
+}
+
+.signin-modal {
+  .ant-modal-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .ant-modal-body {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .signin-modal-header {
+        font-size: 28px;
+        margin: 30px 0 50px 0;
+        text-align: center;
+      }
+
+      .signin-type {
+        padding: 5px 25px;
+        margin-bottom: 10px;
+        border: 1px solid #c5c5c5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        cursor: pointer;
+        span {
+          padding-left: 10px;
+          font-weight: 500;
+        }
+      }
+      .signin-footer {
+        margin-top: 20px;
+        color: gray;
+        font-weight: 500;
+      }
+    }
   }
 }

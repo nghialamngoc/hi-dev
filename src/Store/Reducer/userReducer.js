@@ -2,7 +2,7 @@ import { SET_USER_LOGIN } from '../type'
 
 const getDefaultState = () => {
   const userData = JSON.parse(localStorage.getItem('userLogin'));
-  if ( userData == null ) {
+  if ( userData == null || userData === '' ) {
     return {
       isLogin: false
     }

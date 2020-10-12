@@ -34,6 +34,15 @@ class Firebase {
       setUserLogin(null);
     });
   }
+
+  logoutWithGoogle(setUseLogin) {
+    firebase.auth().signOut().then(() => {
+      // Sign-out successfull
+      setUseLogin();
+    }).catch(err => {
+      console.log('logoutWithGoogle >>>>>>>', err);
+    })
+  }
 }
 
 export default new Firebase();
