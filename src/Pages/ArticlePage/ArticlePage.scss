@@ -1,0 +1,28 @@
+@import "../../scss/variables.scss";
+@import "../../scss/mixin.scss";
+
+.article-page__wrapper {
+  color: $article-content-color;
+  letter-spacing: $article-letter-spacing;
+  .article-header {
+    .icon-back {
+      font-size: 13px;
+      padding-right: 5px;
+      color: $acticle-info-color-1;
+    }
+    .back-text {
+      @include change-color-when-hover($article-content-color, $acticle-info-color-1);
+    }
+    .article-title {
+      margin-top: 20px;
+    }
+  }
+  .article-info {
+    font-size: 14px;
+    font-weight: 600;
+    .article-categories {
+      padding-right: 20px;
+      color: $acticle-info-color-1;
+    }
+  }
+}

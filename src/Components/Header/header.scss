@@ -1,5 +1,3 @@
-@import "../../Assets/Scss/variable.scss";
-
 .header {
   display: flex;
   align-items: center;
@@ -53,7 +51,7 @@
     }
   }
   .menu-link-active {
-    color: $button-color-1;
+    color: #40A9FF;
   }
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import NotFoundImg from '../../Assets/Images/notfound.jpg'
+import NotFoundImg from '../../assets/Images/notfound.jpg'
 export default function NotFoundPage() {
   return (
     <div className="flex-center">

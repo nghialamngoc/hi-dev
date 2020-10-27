@@ -1,8 +1,8 @@
 import React from 'react'
 import { Draggable } from 'react-beautiful-dnd'
-import ToDoImage from '../../../../Assets/Images/todo.jpg'
-import InProgressImage from '../../../../Assets/Images/inprogress.jpg'
-import DoneImage from '../../../../Assets/Images/done.jpg'
+import ToDoImage from '../../../../assets/Images/todo.jpg'
+import InProgressImage from '../../../../assets/Images/inprogress.jpg'
+import DoneImage from '../../../../assets/Images/done.jpg'
 import './task.scss'
 
 export default function Task(props) {

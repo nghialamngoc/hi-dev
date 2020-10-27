@@ -2,8 +2,8 @@ import React, { useCallback, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Avatar, Drawer, Modal } from 'antd';
 import { NavLink, withRouter } from 'react-router-dom';
-import { setUserLogin } from '../../Store/Action/userAction';
-import logo from '../../Assets/Images/logo.jpg';
+import { setUserLogin } from '../../stores/Action/userAction';
+import logo from '../../assets/Images/logo.jpg';
 import FireBase from '../../firebase';
 import './header.scss';
 

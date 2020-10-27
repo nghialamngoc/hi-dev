@@ -1,0 +1,6 @@
+@mixin change-color-when-hover($color1: black, $color2: red) {
+	color: $color1;
+	&:hover {
+		color: $color2;
+	}
+}

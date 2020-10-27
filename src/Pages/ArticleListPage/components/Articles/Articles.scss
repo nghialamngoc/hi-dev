@@ -1,0 +1,14 @@
+.article-skeleton {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  & .ant-space-item {
+    width: 100%;
+    margin: 0 !important;
+    margin-top: 10px !important;
+    .article-skeleton__child {
+      width: 100%;
+    }
+  }
+}
