@@ -91,7 +91,7 @@ const Header = function ({ history }) {
         </ul>
         <ul>
           <li className="not-list-style">
-            <NavLink to="/blog" className="menu-link" activeClassName="menu-link-active"><p>Blog</p></NavLink>
+            <NavLink to="/articles" className="menu-link" activeClassName="menu-link-active"><p>Blog</p></NavLink>
           </li>
         </ul>
       </Drawer>
