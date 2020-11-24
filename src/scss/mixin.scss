@@ -1,6 +1,38 @@
 @mixin change-color-when-hover($color1: black, $color2: red) {
-	color: $color1;
+	color: $color1 !important;
 	&:hover {
-		color: $color2;
+		color: $color2 !important;
 	}
+}
+
+@function strip-units($number) {
+	@return $number / ($number * 0 + 1);
+}
+
+@function getEm($size, $base : $font-size-base) {
+	@return strip-units($size / $base);
+}
+
+@function size($sizes) {
+	$result : '';
+	
+	@each $size in $sizes {
+		$rem : $size;
+		@if $result != '' {
+			$result : $result + ' ';
+		}
+		
+		@if type_of($size) == number and $size != 0 {
+			$rem : getEm($size) + rem;
+		}
+		
+		$result : $result + $rem;
+	}
+	
+	$result : $result;
+	@return unquote($result);
+}
+
+@mixin px2rem($property, $sizes, $useFallback : true) {
+	#{$property}: size($sizes);
 }

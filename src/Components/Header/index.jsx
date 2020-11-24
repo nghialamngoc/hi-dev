@@ -5,6 +5,7 @@ import { NavLink, withRouter } from 'react-router-dom';
 import { setUserLogin } from '../../stores/Action/userAction';
 import logo from '../../assets/Images/logo.jpg';
 import FireBase from '../../firebase';
+import SwitchButtom from '../ToggleSwitchButton/index';
 import './header.scss';
 
 const Header = function ({ history }) {
@@ -75,6 +76,7 @@ const Header = function ({ history }) {
             <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" size={35} />
           </div>
         }
+        <SwitchButtom></SwitchButtom>
       </div>
       <Drawer
         title="Hi Dev 🥳"
